@@ -1,6 +1,6 @@
 const multer = require('multer')
 const fs = require('fs')
-// var zlib = require('zlib');
+var zlib = require('zlib');
 var dir = './uploads';
 var fileUploadUrl = "http://localhost:4000/files/";
 
@@ -58,7 +58,9 @@ uploadController.uploadImage = (req, res, callback) => {
 // -----------------------------
 uploadController.uploadfileFromMulter = (req, res, callback) => {
   uploadController.uploadImage(req, res, (err, data) => {
-    var fileBuffer = fs.createReadStream(req.file.path);
+    console.log(req.file)
+
+    var fileBuffer = fs.readFileSync(req.file.path);
     console.log('fileBuffer:'); 
 
     var input = new Buffer(fileBuffer)

@@ -3,7 +3,15 @@ const upload = require('../../service/upload');
 let fileUploadController = {}
 
 
+fileUploadController.test = (req, res) => {
 
+  filesModel.insert({}, (err, data) => {
+    if (err) res.status(400).send({ msg: err });
+    console.log('Insert res: ', data)
+  })
+
+  res.status(200).send('File Route test...');
+}
 
 
 
@@ -14,11 +22,10 @@ fileUploadController.uploadFile = (req, res) => {
 
     console.log('Data: --- ', data)
 
-    filesModel.insertOne({ fileName: data.key, filePath: data.Location }, (err, data) => {
-      if (err) res.status(400).send({ msg: err });
-
-      console.log('Insert res: ', data)
-    })
+    // filesModel.insertOne({ fileName: data.key, filePath: data.Location }, (err, data) => {
+    //   if (err) res.status(400).send({ msg: err });
+    //   console.log('Insert res: ', data)
+    // })
 
   })
 
