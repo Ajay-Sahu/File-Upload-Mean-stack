@@ -1,6 +1,6 @@
 const multer = require('multer')
 const fs = require('fs')
-var zlib = require('zlib');
+// var zlib = require('zlib');
 var dir = './uploads';
 var fileUploadUrl = "http://localhost:4000/files/";
 
