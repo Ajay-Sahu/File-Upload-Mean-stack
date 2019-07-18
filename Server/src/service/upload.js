@@ -63,6 +63,7 @@ uploadController.uploadfileFromMulter = (req, res, callback) => {
 
     var input = new Buffer(fileBuffer)
     console.log(input)
+    
     var compressed = zlib.deflate(input);
     console.log('Compresssed...')
     console.log(compressed)
