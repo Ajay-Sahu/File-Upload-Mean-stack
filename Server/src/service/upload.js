@@ -1,6 +1,6 @@
 const multer = require('multer')
 const fs = require('fs')
-var zlib = require('zlib');
+// var zlib = require('zlib');
 var dir = './uploads';
 var fileUploadUrl = "http://localhost:4000/files/";
 
@@ -58,30 +58,7 @@ uploadController.uploadImage = (req, res, callback) => {
 // -----------------------------
 uploadController.uploadfileFromMulter = (req, res, callback) => {
   uploadController.uploadImage(req, res, (err, data) => {
-    var fileBuffer = fs.createReadStream(req.file.path);
-    console.log('fileBuffer:'); 
-
-    var input = new Buffer(fileBuffer)
-    console.log(input)
-    var compressed = zlib.deflate(input);
-    console.log('Compresssed...')
-    console.log(compressed)
-
-    var dir2 = './uploads/files2/' + req.file.filename;
-    // if (!fs.existsSync(dir2))
-    //   fs.mkdirSync(dir2);
-
-    fs.writeFile(dir2, compressed, function (err) {
-      if (err) throw err;
-      console.log('compressed file added in files2...');
-    });
-
-
-
-
-    var output = zlib.inflate(compressed);
-    console.log(output)
-
+    
     var s3Res = {
       Location: fileUploadUrl + req.file.filename,
       key: req.file.filename,
