@@ -44,12 +44,12 @@ app.use(function (err, req, res, next) {
 // -----------------------
 if (app.get('env') == 'development') {
   console.log("Development Env...")
-  mongoose.connect("mongodb://172.16.1.50:27017/practice", { useNewUrlParser: true }, (err) => {
-    if (err) console.log("Error connecting mongodb....")
-    else console.log("Connected to Mongodb")
-  })
+  // mongoose.connect("mongodb://172.16.1.50:27017/practice", { useNewUrlParser: true }, (err) => {
+  //   if (err) console.log("Error connecting mongodb....")
+  //   else console.log("Connected to Mongodb")
+  // })
 }
 
-app.listen(4000);
-
+app.listen(7000);
+console.log("Api running on port 7000")
 module.exports = app;
