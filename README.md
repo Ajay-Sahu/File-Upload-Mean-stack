@@ -1,5 +1,5 @@
 # File-Upload
-Contains UI in Angular and Server in Nodejs for file upload &amp; compression feature
+File-Upload with Angular and  Nodejs
 
 Contents:
 File upload server side code tested with postman
